@@ -1,0 +1,17 @@
+@model code_MVC.Models.Classroom
+@{
+    ViewData["Title"] = "Sınıf Detay";
+}
+<h2>Sınıf Detay</h2>
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Adı</dt>
+        <dd class="col-sm-10">@Model.Name</dd>
+        <dt class="col-sm-2">Kapasite</dt>
+        <dd class="col-sm-10">@Model.Capacity</dd>
+        <dt class="col-sm-2">Lokasyon</dt>
+        <dd class="col-sm-10">@Model.Location</dd>
+    </dl>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Düzenle</a>
+    <a asp-action="Index" class="btn btn-secondary">Geri</a>
+</div> 

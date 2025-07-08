@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "CodeNest - Kodlama Eğitimi Yönetim Sistemi";
+}
+<div class="text-center mt-5">
+    <h1 style="font-size:2.8rem; color:#4F8EF7; font-weight:800; letter-spacing:1px;">CodeNest</h1>
+    <h3 class="mb-4" style="color:#F7B32B;">Kurum içi kurs ve öğrenci takip sistemi</h3>
+    <p class="lead mb-4" style="color:#A0A4B8; max-width:600px; margin:auto;">
+        Modern, koyu temalı, profesyonel bir eğitim yönetim sistemi. Kurslar, öğrenciler, eğitmenler, ödevler ve daha fazlasını kolayca yönetin. Admin ve öğrenci panelleri, API ile veri yönetimi ve özet dashboard ile tam kontrol sizde!
+    </p>
+    <div class="d-flex justify-content-center gap-3 mb-4">
+        <a class="btn btn-primary btn-lg" asp-controller="Home" asp-action="Dashboard">Yönetim Paneli</a>
+        <a class="btn btn-warning btn-lg" asp-controller="StudentPanel" asp-action="Index">Öğrenci Paneli</a>
+    </div>
+    <div class="row mt-5 justify-content-center">
+        <div class="col-md-3 mb-3">
+            <div class="card text-center p-3">
+                <h5 style="color:#F7B32B;">Kurs Yönetimi</h5>
+                <span style="color:#A0A4B8;">Kurs ekle, düzenle, sil ve öğrenci ata</span>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card text-center p-3">
+                <h5 style="color:#4F8EF7;">Sınıf &amp; Duyuru</h5>
+                <span style="color:#A0A4B8;">Sınıfları ve duyuruları kolayca yönet</span>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card text-center p-3">
+                <h5 style="color:#A0A4B8;">Öğrenci Takibi</h5>
+                <span style="color:#A0A4B8;">Öğrenci ilerlemesini ve ödev durumunu izle</span>
+            </div>
+        </div>
+    </div>
+</div>

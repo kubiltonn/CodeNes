@@ -1,0 +1,23 @@
+@model code_MVC.Models.Announcement
+@{
+    ViewData["Title"] = "Duyuru Ekle";
+}
+<div class="d-flex justify-content-center align-items-center min-vh-100" style="padding-bottom:3rem;">
+    <div style="background:#23272F; border-radius:16px; box-shadow:0 2px 12px rgba(0,0,0,0.15); padding:1.5rem 1.2rem 1rem 1.2rem; min-width:220px; max-width:500px; width:100%; overflow:auto;">
+        <h2>Duyuru Ekle</h2>
+        <form asp-action="Create" method="post">
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Content" class="form-label"></label>
+                <textarea asp-for="Content" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+            <a asp-action="Index" class="btn btn-secondary">İptal</a>
+        </form>
+    </div>
+</div> 

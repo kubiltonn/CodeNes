@@ -1,0 +1,41 @@
+@model code_MVC.Models.AssignmentDto
+@{
+    ViewData["Title"] = "Ödev Ekle (API)";
+}
+<div class="d-flex justify-content-center align-items-center min-vh-100" style="padding-bottom:3rem;">
+    <div style="background:#23272F; border-radius:16px; box-shadow:0 2px 12px rgba(0,0,0,0.15); padding:1.5rem 1.2rem 1rem 1.2rem; min-width:220px; max-width:400px; width:100%; overflow:auto;">
+        <h2 class="mb-3" style="color:#4F8EF7; font-size:1.5rem;">Ödev Ekle (API)</h2>
+        <form asp-action="Create" method="post">
+            <div class="mb-2">
+                <label class="form-label">Kurs</label>
+                <select asp-for="CourseId" class="form-control">
+                    <option value="">Seçiniz</option>
+                    @foreach (var c in (IEnumerable<code_MVC.Models.CourseDto>)ViewBag.Courses)
+                    {
+                        <option value="@c.Id">@c.Title</option>
+                    }
+                </select>
+                <span asp-validation-for="CourseId" class="text-danger" style="font-size:0.95rem;"></span>
+            </div>
+            <div class="mb-2">
+                <label asp-for="Title" class="form-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger" style="font-size:0.95rem;"></span>
+            </div>
+            <div class="mb-2">
+                <label asp-for="Description" class="form-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger" style="font-size:0.95rem;"></span>
+            </div>
+            <div class="mb-2">
+                <label asp-for="DueDate" class="form-label"></label>
+                <input asp-for="DueDate" class="form-control" type="date" />
+                <span asp-validation-for="DueDate" class="text-danger" style="font-size:0.95rem;"></span>
+            </div>
+            <div class="d-grid gap-2 mt-3">
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+                <a asp-action="Index" class="btn btn-secondary">İptal</a>
+            </div>
+        </form>
+    </div>
+</div> 

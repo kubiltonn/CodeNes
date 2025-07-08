@@ -1,0 +1,55 @@
+@model code_MVC.Models.StudentPanelViewModel
+@{
+    ViewData["Title"] = "Öğrenci Paneli";
+}
+<div class="container min-vh-100 d-flex flex-column justify-content-between" style="padding-bottom:3rem;">
+    <h2 class="mb-4">@Model.StudentName - Kurslarım</h2>
+    <div class="row g-4">
+        @foreach (var course in Model.Courses)
+        {
+            <div class="col-md-6">
+                <div class="card p-3 mb-3">
+                    <h4>@course.Title</h4>
+                    <p>@course.Description</p>
+                    <div class="progress mb-2" style="height: 20px;">
+                        <div class="progress-bar" role="progressbar" style="width: @course.ProgressPercent%; background:#4F8EF7;" aria-valuenow="@course.ProgressPercent" aria-valuemin="0" aria-valuemax="100">
+                            @course.ProgressPercent%
+                        </div>
+                    </div>
+                    <span class="text-secondary">Süre: @course.DurationWeeks hafta</span>
+                </div>
+            </div>
+        }
+    </div>
+    <h3 class="mt-5 mb-3">Ödevlerim</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Kurs</th>
+                <th>Başlık</th>
+                <th>Son Teslim</th>
+                <th>Tamamlandı</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var assignment in Model.Assignments)
+        {
+            <tr>
+                <td>@assignment.CourseTitle</td>
+                <td>@assignment.Title</td>
+                <td>@assignment.DueDate</td>
+                <td>
+                    @if (assignment.IsCompleted)
+                    {
+                        <span class="badge bg-success">Evet</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-warning text-dark">Hayır</span>
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div> 

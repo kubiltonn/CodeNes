@@ -1,0 +1,37 @@
+@model code_MVC.Models.DashboardViewModel
+@{
+    ViewData["Title"] = "Yönetim Paneli";
+}
+<h2 class="mb-4">Yönetim Paneli</h2>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4 justify-content-center">
+    <div class="col">
+        <div class="card text-center p-3 h-100 d-flex flex-column justify-content-center align-items-center">
+            <h4 style="font-size:1.2rem;">Öğrenci</h4>
+            <div style="font-size:2rem; color:#4F8EF7; font-weight:700;">@Model.StudentCount</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card text-center p-3 h-100 d-flex flex-column justify-content-center align-items-center">
+            <h4 style="font-size:1.2rem;">Kurs</h4>
+            <div style="font-size:2rem; color:#F7B32B; font-weight:700;">@Model.CourseCount</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card text-center p-3 h-100 d-flex flex-column justify-content-center align-items-center">
+            <h4 style="font-size:1.2rem;">Eğitmen</h4>
+            <div style="font-size:2rem; color:#A0A4B8; font-weight:700;">@Model.InstructorCount</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card text-center p-3 h-100 d-flex flex-column justify-content-center align-items-center">
+            <h4 style="font-size:1.2rem;">Sınıf</h4>
+            <div style="font-size:2rem; color:#4F8EF7; font-weight:700;">@Model.ClassroomCount</div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card text-center p-3 h-100 d-flex flex-column justify-content-center align-items-center">
+            <h4 style="font-size:1.2rem;">Duyuru</h4>
+            <div style="font-size:2rem; color:#F7B32B; font-weight:700;">@Model.AnnouncementCount</div>
+        </div>
+    </div>
+</div> 

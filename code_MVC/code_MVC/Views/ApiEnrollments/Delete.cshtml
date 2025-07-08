@@ -1,0 +1,27 @@
+@model code_MVC.Models.EnrollmentDto
+@{
+    ViewData["Title"] = "Kayıt Sil (API)";
+}
+<div class="d-flex justify-content-center align-items-center" style="min-height:calc(100vh - 120px); margin-bottom:2rem;">
+    <div style="background:#23272F; border-radius:16px; box-shadow:0 2px 12px rgba(0,0,0,0.15); padding:1.5rem 1.2rem 1rem 1.2rem; min-width:220px; max-width:400px; width:100%;">
+        <h2 class="mb-3" style="color:#F7B32B; font-size:1.5rem;">Kayıt Sil (API)</h2>
+        <h5>Bu kaydı silmek istediğinize emin misiniz?</h5>
+        <dl class="row mt-3">
+            <dt class="col-sm-4">Öğrenci Id</dt>
+            <dd class="col-sm-8">@Model.StudentId</dd>
+            <dt class="col-sm-4">Kurs Id</dt>
+            <dd class="col-sm-8">@Model.CourseId</dd>
+            <dt class="col-sm-4">Kayıt Tarihi</dt>
+            <dd class="col-sm-8">@Model.EnrollmentDate</dd>
+            <dt class="col-sm-4">Durum</dt>
+            <dd class="col-sm-8">@Model.Status</dd>
+        </dl>
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="d-grid gap-2 mt-3">
+                <button type="submit" class="btn btn-danger">Sil</button>
+                <a asp-action="Index" class="btn btn-secondary">İptal</a>
+            </div>
+        </form>
+    </div>
+</div> 

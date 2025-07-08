@@ -1,0 +1,36 @@
+@model code_MVC.Models.StudentDto
+@{
+    ViewData["Title"] = "Öğrenci Sil (API)";
+}
+<div class="d-flex justify-content-center align-items-center" style="min-height:calc(100vh - 120px); margin-bottom:2rem;">
+    <div style="background:#23272F; border-radius:16px; box-shadow:0 2px 12px rgba(0,0,0,0.15); padding:2.5rem 2.5rem 2rem 2.5rem; min-width:320px; max-width:600px; width:100%;">
+        <h2 class="mb-3" style="color:#F7B32B; font-size:2rem;">Öğrenci Sil (API)</h2>
+        <h5>Bu öğrenciyi silmek istediğinize emin misiniz?</h5>
+        <dl class="row mt-3">
+            <dt class="col-sm-4">Adı</dt>
+            <dd class="col-sm-8">@Model.Name</dd>
+            <dt class="col-sm-4">Email</dt>
+            <dd class="col-sm-8">@Model.Email</dd>
+            <dt class="col-sm-4">Telefon</dt>
+            <dd class="col-sm-8">@Model.Phone</dd>
+            <dt class="col-sm-4">Kayıt Tarihi</dt>
+            <dd class="col-sm-8">
+                @{
+                    DateTime? regDate = null;
+                    if (DateTime.TryParse(Model.RegistrationDate, out var dt))
+                    {
+                        regDate = dt;
+                    }
+                }
+                @regDate?.ToString("dd.MM.yyyy")
+            </dd>
+        </dl>
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="d-grid gap-2 mt-3">
+                <button type="submit" class="btn btn-danger">Sil</button>
+                <a asp-action="Index" class="btn btn-secondary">İptal</a>
+            </div>
+        </form>
+    </div>
+</div> 

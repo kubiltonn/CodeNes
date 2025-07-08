@@ -1,0 +1,20 @@
+@model List<code_MVC.Models.StudentDto>
+@{
+    ViewData["Title"] = "Öğrenci Seçimi";
+}
+<div class="container mt-5" style="max-width:500px;">
+    <h2 class="mb-4" style="color:#4F8EF7;">Öğrenci Paneli</h2>
+    <form asp-action="Select" method="post">
+        <div class="mb-3">
+            <label for="studentId" class="form-label">Öğrenci Seçiniz</label>
+            <select id="studentId" name="studentId" class="form-select" required>
+                <option value="">-- Öğrenci Seçin --</option>
+                @foreach (var student in Model)
+                {
+                    <option value="@student.Id">@student.Name</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Panele Gir</button>
+    </form>
+</div> 

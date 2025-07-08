@@ -1,0 +1,44 @@
+@model IEnumerable<code_MVC.Models.InstructorDto>
+@{
+    ViewData["Title"] = "Eğitmenler";
+}
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-light">Eğitmenler</h2>
+        <a class="btn btn-success" asp-action="Create">+ Yeni Eğitmen</a>
+    </div>
+    <div class="table-responsive rounded shadow">
+        <table class="table table-dark table-hover align-middle mb-0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ad Soyad</th>
+                    <th>Email</th>
+                    <th>Bölüm</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Email</td>
+                        <td>@item.Specialty</td>
+                        <td class="text-end">
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm me-1">Detay</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning btn-sm me-1">Düzenle</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<style>
+    body { background: #181a1b; }
+    .table-dark { --bs-table-bg: #23272b; --bs-table-striped-bg: #23272b; --bs-table-hover-bg: #2c3035; }
+    .btn { font-weight: 500; }
+</style> 

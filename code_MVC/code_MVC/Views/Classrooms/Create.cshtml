@@ -1,0 +1,30 @@
+@model code_MVC.Models.Classroom
+@{
+    ViewData["Title"] = "Sınıf Ekle";
+}
+<div class="d-flex justify-content-center align-items-center" style="min-height:calc(100vh - 120px); margin-bottom:2rem;">
+    <div style="background:#23272F; border-radius:16px; box-shadow:0 2px 12px rgba(0,0,0,0.15); padding:2.5rem 2.5rem 2rem 2.5rem; min-width:320px; max-width:600px; width:100%;">
+        <h2 class="mb-3" style="color:#4F8EF7; font-size:2rem;">Sınıf Ekle</h2>
+        <form asp-action="Create" method="post">
+            <div class="mb-2">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger" style="font-size:0.95rem;"></span>
+            </div>
+            <div class="mb-2">
+                <label asp-for="Capacity" class="form-label"></label>
+                <input asp-for="Capacity" class="form-control" />
+                <span asp-validation-for="Capacity" class="text-danger" style="font-size:0.95rem;"></span>
+            </div>
+            <div class="mb-2">
+                <label asp-for="Location" class="form-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger" style="font-size:0.95rem;"></span>
+            </div>
+            <div class="d-grid gap-2 mt-3">
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+                <a asp-action="Index" class="btn btn-secondary">İptal</a>
+            </div>
+        </form>
+    </div>
+</div> 
